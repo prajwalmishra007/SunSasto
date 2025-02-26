@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SunSasto Jewelry</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        /* Sophisticated color palette */
+        --primary: #8a6642; /* Rich bronze */
+        --primary-light: #c2a383; /* Light bronze */
+        --primary-dark: #614730; /* Dark bronze */
+        --accent: #d4c2a8; /* Light tan */
+        --text: #2d2926; /* Almost black */
+        --text-light: #5f5b58; /* Dark gray */
+        --bg-light: #f8f6f3; /* Off-white */
+        --white: #ffffff;
+        --border-color: #e5e0d8;
+        --spacing-xs: 0.5rem;
+        --spacing-sm: 1rem;
+        --spacing-md: 1.5rem;
+        --spacing-lg: 2.5rem;
+        --border-radius: 4px; /* Reduced from 8px for minimalism */
+        --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 var(--spacing-md);
+      }
+
+      /* Header & Navigation */
+      header {
+        background-color: var(--white);
+        box-shadow: var(--box-shadow);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--spacing-md) 0;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: var(--primary);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        letter-spacing: 1px;
+      }
+
+      .logo i {
+        margin-right: var(--spacing-xs);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.2rem;
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: var(--spacing-lg);
+      }
+
+      nav a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 400;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: var(--transition);
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: var(--spacing-lg) 0 var(--spacing-md);
+        text-align: center;
+        background-color: var(--white);
+        margin-bottom: var(--spacing-lg);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: var(--spacing-md);
+        color: var(--text);
+        letter-spacing: 2px;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 0 auto var(--spacing-md);
+        color: var(--text-light);
+        font-weight: 300;
+      }
+
+      /* Search Bar */
+      .search-container {
+        max-width: 500px;
+        margin: var(--spacing-md) auto;
+      }
+
+      .search-form {
+        display: flex;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+
+      .search-input {
+        flex-grow: 1;
+        padding: var(--spacing-sm);
+        border: none;
+        outline: none;
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+
+      .search-button {
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: var(--spacing-sm) var(--spacing-md);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .search-button:hover {
+        background: var(--primary-dark);
+      }
+
+      /* Section Styles */
+      .section {
+        background: var(--white);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-md);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        border: 1px solid var(--border-color);
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--spacing-md);
+        color: var(--primary);
+      }
+
+      .section-header i {
+        font-size: 1.2rem;
+        margin-right: var(--spacing-sm);
+        color: var(--primary);
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .section p {
+        color: var(--text-light);
+        font-weight: 300;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+      }
+
+      .feature-card {
+        background: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-md);
+        transition: var(--transition);
+      }
+
+      .feature-card:hover {
+        box-shadow: var(--box-shadow);
+      }
+
+      .feature-icon {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .feature-card h3 {
+        margin-bottom: var(--spacing-xs);
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: var(--text);
+      }
+
+      .feature-card p {
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      /* Custom Design Form */
+      .custom-design-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+      }
+
+      .form-group {
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: var(--spacing-xs);
+        font-weight: 400;
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .custom-design-form input,
+      .custom-design-form select,
+      .custom-design-form textarea {
+        width: 100%;
+        padding: var(--spacing-sm);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        font-size: 0.9rem;
+        transition: var(--transition);
+        background-color: var(--bg-light);
+      }
+
+      .custom-design-form input:focus,
+      .custom-design-form select:focus,
+      .custom-design-form textarea:focus {
+        outline: none;
+        border-color: var(--primary-light);
+        box-shadow: 0 0 0 2px rgba(194, 163, 131, 0.1);
+      }
+
+      .full-width {
+        grid-column: span 2;
+      }
+
+      .file-upload-container {
+        border: 1px solid var(--primary-light);
+        padding: var(--spacing-md);
+        text-align: center;
+        border-radius: var(--border-radius);
+        background-color: rgba(212, 194, 168, 0.05);
+        transition: var(--transition);
+      }
+
+      .file-upload-container:hover {
+        background-color: rgba(212, 194, 168, 0.1);
+      }
+
+      .upload-instructions {
+        margin-bottom: var(--spacing-sm);
+        color: var(--text-light);
+        font-size: 0.9rem;
+      }
+
+      .file-input-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .file-input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+      }
+
+      .upload-button {
+        background: var(--primary);
+        color: var(--white);
+        padding: var(--spacing-xs) var(--spacing-md);
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .upload-button i {
+        margin-right: var(--spacing-xs);
+      }
+
+      .upload-button:hover {
+        background: var(--primary-dark);
+      }
+
+      .file-preview {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-md);
+      }
+
+      .preview-item {
+        width: 80px;
+        height: 80px;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        position: relative;
+        border: 1px solid var(--border-color);
+      }
+
+      .preview-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .preview-item .remove-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(97, 71, 48, 0.7);
+        color: white;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .preview-item .remove-btn:hover {
+        background: rgba(97, 71, 48, 0.9);
+      }
+
+      .submit-btn {
+        grid-column: span 2;
+        padding: var(--spacing-sm);
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-top: var(--spacing-md);
+        transition: var(--transition);
+      }
+
+      .submit-btn:hover {
+        background: var(--primary-dark);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--text);
+        color: var(--accent);
+        padding: var(--spacing-lg) 0;
+        margin-top: var(--spacing-lg);
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-lg);
+      }
+
+      .footer-section h3 {
+        color: var(--primary-light);
+        margin-bottom: var(--spacing-sm);
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .footer-section p {
+        font-size: 0.9rem;
+        font-weight: 300;
+        margin-bottom: var(--spacing-sm);
+        color: #aaa;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section li {
+        margin-bottom: var(--spacing-xs);
+        font-size: 0.9rem;
+      }
+
+      .footer-section a {
+        color: #aaa;
+        text-decoration: none;
+        transition: var(--transition);
+        font-weight: 300;
+      }
+
+      .footer-section a:hover {
+        color: var(--primary-light);
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--spacing-sm);
+        margin-top: var(--spacing-sm);
+      }
+
+      .social-links a {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.05);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        font-size: 0.8rem;
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: var(--spacing-lg);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: var(--spacing-lg);
+        color: #777;
+        font-size: 0.8rem;
+        font-weight: 300;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .section {
+          padding: var(--spacing-md);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        nav {
+          position: fixed;
+          top: 0;
+          right: -300px;
+          width: 300px;
+          height: 100vh;
+          background: var(--white);
+          z-index: 1000;
+          transition: var(--transition);
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+          padding: var(--spacing-lg) var(--spacing-md);
+        }
+
+        nav.active {
+          right: 0;
+        }
+
+        nav ul {
+          flex-direction: column;
+          gap: var(--spacing-sm);
+        }
+
+        nav a {
+          display: block;
+          padding: var(--spacing-xs) 0;
+        }
+
+        .overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.3);
+          z-index: 999;
+        }
+
+        .overlay.active {
+          display: block;
+        }
+
+        .close-menu {
+          position: absolute;
+          top: var(--spacing-md);
+          right: var(--spacing-md);
+          background: none;
+          border: none;
+          font-size: 1.2rem;
+          cursor: pointer;
+          color: var(--text);
+        }
+
+        .custom-design-form {
+          grid-template-columns: 1fr;
+        }
+
+        .full-width,
+        .submit-btn {
+          grid-column: 1;
+        }
+
+        .hero h1 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container header-container">
+        <a href="#" class="logo"><i class="fas fa-gem"></i> SunSasto</a>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav id="nav">
+          <button class="close-menu" id="close-menu">
+            <i class="fas fa-times"></i>
+          </button>
+          <ul>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#custom-design">Custom Design</a></li>
+            <li><a href="#stores">Stores</a></li>
+            <li><a href="#gold-prices">Prices</a></li>
+            <li><a href="#purity-test">Purity</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="overlay" id="overlay"></div>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Refined Luxury. Enduring Quality.</h1>
+        <p>
+          Discover our collection of meticulously crafted jewelry pieces
+          designed for the discerning individual.
+        </p>
+        <div class="search-container">
+          <form class="search-form" action="#" method="get">
+            <input
+              type="text"
+              placeholder="Search our collection..."
+              class="search-input"
+            />
+            <button type="submit" class="search-button">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section id="collection" class="section">
+        <div class="section-header">
+          <i class="fas fa-gem"></i>
+          <h2>Collection</h2>
+        </div>
+        <p>
+          Explore our curated selection of fine jewelry, each piece showcasing
+          exceptional craftsmanship and timeless design.
+        </p>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-ring"></i>
+            </div>
+            <h3>Rings</h3>
+            <p>
+              Elegant designs for engagements, weddings, and special occasions.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-link"></i>
+            </div>
+            <h3>Necklaces</h3>
+            <p>From delicate chains to statement pieces for every occasion.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="far fa-circle"></i>
+            </div>
+            <h3>Earrings</h3>
+            <p>Classic studs, hoops, and drops that complement any look.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-gift"></i>
+            </div>
+            <h3>Gift Sets</h3>
+            <p>Perfectly matched sets for memorable presents and occasions.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="custom-design" class="section">
+        <div class="section-header">
+          <i class="fas fa-magic"></i>
+          <h2>Custom Design</h2>
+        </div>
+        <p>
+          Commission a bespoke piece tailored to your vision. Share your
+          inspirations and preferences below.
+        </p>
+
+        <form class="custom-design-form">
+          <div class="form-group">
+            <label for="jewelry-type">Jewelry Type</label>
+            <select id="jewelry-type" name="jewelry-type" required>
+              <option value="">Select type</option>
+              <option value="ring">Ring</option>
+              <option value="necklace">Necklace</option>
+              <option value="bracelet">Bracelet</option>
+              <option value="earrings">Earrings</option>
+              <option value="pendant">Pendant</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="metal-type">Metal Type</label>
+            <select id="metal-type" name="metal-type" required>
+              <option value="">Select metal</option>
+              <option value="gold">Gold</option>
+              <option value="silver">Silver</option>
+              <option value="platinum">Platinum</option>
+              <option value="rose-gold">Rose Gold</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="gemstone">Gemstone (Optional)</label>
+            <select id="gemstone" name="gemstone">
+              <option value="">Select gemstone</option>
+              <option value="diamond">Diamond</option>
+              <option value="ruby">Ruby</option>
+              <option value="emerald">Emerald</option>
+              <option value="sapphire">Sapphire</option>
+              <option value="none">None</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget Range (NPR)</label>
+            <select id="budget" name="budget" required>
+              <option value="">Select budget</option>
+              <option value="under-50000">Under 50,000</option>
+              <option value="50000-100000">50,000 - 100,000</option>
+              <option value="100000-200000">100,000 - 200,000</option>
+              <option value="above-200000">Above 200,000</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="contact">Contact Number</label>
+            <input
+              type="tel"
+              id="contact"
+              name="contact"
+              placeholder="Enter your phone number"
+              required
+            />
+          </div>
+
+          <div class="full-width">
+            <div class="form-group">
+              <label for="file-upload">Design Inspiration</label>
+              <div class="file-upload-container">
+                <p class="upload-instructions">
+                  Upload images or sketches (JPG, PNG, max 5MB each)
+                </p>
+
+                <div class="file-input-wrapper">
+                  <button type="button" class="upload-button">
+                    <i class="fas fa-upload"></i> Select Files
+                  </button>
+                  <input
+                    type="file"
+                    id="file-upload"
+                    class="file-input"
+                    multiple
+                    accept="image/*"
+                  />
+                </div>
+
+                <div class="file-preview"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="full-width">
+            <div class="form-group">
+              <label for="description">Design Description</label>
+              <textarea
+                id="description"
+                name="description"
+                rows="3"
+                placeholder="Describe your design concept..."
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+      </section>
+
+      <section id="stores" class="section">
+        <div class="section-header">
+          <i class="fas fa-store"></i>
+          <h2>Stores</h2>
+        </div>
+        <p>
+          Visit our locations in Birtamod and Buddhasanti to explore our
+          collections and receive personalized consultation.
+        </p>
+      </section>
+
+      <section id="gold-prices" class="section">
+        <div class="section-header">
+          <i class="fas fa-chart-line"></i>
+          <h2>Gold Prices</h2>
+        </div>
+        <p>
+          Stay informed with daily updated gold rates. We ensure fair and
+          transparent pricing based on current market values.
+        </p>
+      </section>
+
+      <section id="purity-test" class="section">
+        <div class="section-header">
+          <i class="fas fa-microscope"></i>
+          <h2>Purity Test</h2>
+        </div>
+        <p>
+          Our certified experts provide professional gold purity verification
+          using advanced testing methods.
+        </p>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="section-header">
+          <i class="fas fa-envelope"></i>
+          <h2>Contact</h2>
+        </div>
+        <p>
+          Our team is available to assist with inquiries about our collections,
+          services, and custom design requests.
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>SunSasto</h3>
+            <p>
+              Dedicated to exceptional craftsmanship and timeless designs that
+              celebrate life's special moments.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h3>Navigation</h3>
+            <ul>
+              <li><a href="#collection">Collection</a></li>
+              <li><a href="#custom-design">Custom Design</a></li>
+              <li><a href="#stores">Stores</a></li>
+              <li><a href="#gold-prices">Gold Prices</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Jewelry Care</a></li>
+              <li><a href="#">Appraisal</a></li>
+              <li><a href="#">Repair</a></li>
+              <li><a href="#">Resizing</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <ul>
+              <li>
+                <i class="fas fa-map-marker-alt"></i> Birtamod & Buddhasanti
+              </li>
+              <li><i class="fas fa-phone"></i> +977-1234567890</li>
+              <li><i class="fas fa-envelope"></i> info@sunsasto.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 SunSasto Jewelry. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const closeMenuBtn = document.getElementById("close-menu");
+        const nav = document.getElementById("nav");
+        const overlay = document.getElementById("overlay");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          nav.classList.add("active");
+          overlay.classList.add("active");
+          document.body.style.overflow = "hidden";
+        });
+
+        closeMenuBtn.addEventListener("click", function () {
+          nav.classList.remove("active");
+          overlay.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+
+        overlay.addEventListener("click", function () {
+          nav.classList.remove("active");
+          overlay.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+
+        // File upload handling
+        const fileInput = document.querySelector(".file-input");
+        const previewContainer = document.querySelector(".file-preview");
+
+        fileInput.addEventListener("change", function () {
+          // Clear existing previews
+          previewContainer.innerHTML = "";
+
+          // Process each selected file
+          for (let i = 0; i < this.files.length; i++) {
+            const file = this.files[i];
+
+            // Only process image files
+            if (!file.type.match("image.*")) {
+              continue;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              const previewItem = document.createElement("div");
+              previewItem.className = "preview-item";
+
+              const img = document.createElement("img");
+              img.src = e.target.result;
+              img.alt = "Design inspiration preview";
+
+              const removeBtn = document.createElement("div");
+              removeBtn.className = "remove-btn";
+              removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+              removeBtn.addEventListener("click", function () {
+                previewItem.remove();
+              });
+
+              previewItem.appendChild(img);
+              previewItem.appendChild(removeBtn);
+              previewContainer.appendChild(previewItem);
+            };
+
+            // Read the image file as a data URL
+            reader.readAsDataURL(file);
+          }
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Close mobile menu if open
+            nav.classList.remove("active");
+            overlay.classList.remove("active");
+            document.body.style.overflow = "";
+
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
